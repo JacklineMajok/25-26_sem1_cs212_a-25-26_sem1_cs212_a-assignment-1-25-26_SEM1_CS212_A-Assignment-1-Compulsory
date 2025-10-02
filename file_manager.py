@@ -46,8 +46,8 @@ def calculate_file_size():
         
         # Calculate size in different units
         # TODO: Fix the code below to perform floating point division
-        size_kb = size_bytes // 1024
-        size_mb = size_kb // 1024
+        size_kb = size_bytes / 1024
+        size_mb = size_kb / 1024
         
         # Display results
         print(f"\nFile: {filename}")
@@ -119,8 +119,16 @@ def display_info():
 # 2. goodbye_message defaults to "Thank you for using Python CLI File Manager!"
 # 3. invalid_choice_prefix defaults to "Invalid choice:"
 # 4. valid_commands defaults to "help, calc, info, quit"
-def process_user_command(choice, running, show_goodbye, goodbye_message, 
-                        invalid_choice_prefix, valid_commands):
+def get_user_choice():
+    return input("Enter command: ")
+
+def process_user_command(choice, 
+    running, 
+    show_goodbye=True, 
+    goodbye_message="Thank you for using Python CLI File Manager!", 
+    invalid_choice_prefix="Invalid choice:", 
+    valid_commands="help, calc, info, quit"
+):
     """
     Process a user command and return the updated running state.
     
@@ -138,16 +146,7 @@ def process_user_command(choice, running, show_goodbye, goodbye_message,
     Returns:
         bool: Updated running state (False if user chose to quit, True otherwise)
     """
-def get_user_choice():
-    return input("Enter command: ")
 
-def process_user_command(choice, 
-    running, 
-    show_goodbye=True, 
-    goodbye_message="Thank you for using Python CLI File Manager!", 
-    invalid_choice_prefix="Invalid choice:", 
-    valid_commands="help, calc, info, quit"
-):
     if choice == "help":
         display_help()
     elif choice == "calc":
@@ -173,6 +172,7 @@ def process_user_command(choice,
     # Main command loop
     # TODO: Initialize a variable to control the loop. Hint set running = True
 def main():
+    display_welcome()
     running = True
     
     while running:
