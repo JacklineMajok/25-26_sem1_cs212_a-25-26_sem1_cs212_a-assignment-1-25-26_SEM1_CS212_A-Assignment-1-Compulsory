@@ -17,6 +17,7 @@ import file_manager
 
 
 class TestFileManagerTODOTasks(unittest.TestCase):
+    
     """Test cases specifically for TODO tasks in file_manager."""
     
     def test_display_welcome_blank_line_todo(self):
@@ -32,6 +33,7 @@ class TestFileManagerTODOTasks(unittest.TestCase):
         # The output should end with two newlines (one from last print, one blank line)
         self.assertTrue(output.endswith('\n\n') or output.count('\n') >= 6,
                        "TODO: Welcome message should end with a blank line")
+        print()
     
     def test_floating_point_division_todo(self):
         """Test TODO: Fix floating point division in calculate_file_size."""
